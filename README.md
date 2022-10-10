@@ -11,3 +11,7 @@ System and User Configurations à la Nix Flakes.
 
 /utils
 ------
+#### install_vps.sh 
+a small script to install [NixOS](https://nixos.org) on a vps.
+#### curl_keys.sh
+a script to curl my keys from github.com
