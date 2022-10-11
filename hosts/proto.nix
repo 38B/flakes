@@ -16,6 +16,7 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
+  fileSystems.'/'.device = "/dev/disk/by-label/slash";
   swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
 
   networking.useDHCP = lib.mkDefault true;

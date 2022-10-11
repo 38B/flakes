@@ -1,5 +1,5 @@
 {
-  description = "38+B flake configuration database"
+  description = "38+B flake configuration database";
   
   inputs = {
     nixpkgs.url = "nixpkgs/release-22.05";
