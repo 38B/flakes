@@ -5,13 +5,20 @@ System and User Configurations à la Nix Flakes.
 
 /hosts
 ------
+#### proto
+a prototype install on a cloud vps
 
 /users
 ------
+#### blob@proto
+a user with sudo powers
 
 /utils
 ------
-#### install_vps.sh 
-a small script to install [NixOS](https://nixos.org) on a vps.
+#### install_nixos.sh
+a script to install nixos from 38b flakes repo
+#### partition_vda.sh 
+a script to partition a new VPS with a 1GB swap and ext4 filesystem
 #### curl_keys.sh
 a script to curl my keys from github.com
+
