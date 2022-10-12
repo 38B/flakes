@@ -19,6 +19,19 @@
   time.timeZone = "America/New_York";                                                                                                                                  
   i18n.defaultLocale = "en_US.UTF-8";
 
+  environment.systemPackages = with pkgs; [
+    curl wget htop git
+  ];
+
+  nix = {
+    settings = {
+      # Enable flakes and new 'nix' command
+      experimental-features = "nix-command flakes";
+      # Deduplicate and optimize nix store
+      auto-optimise-store = true;
+    };
+  };
+
   users.users = {
     blob = {
       initialPassword = "correcthorsebatterystaple";
