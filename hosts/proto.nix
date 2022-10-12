@@ -19,7 +19,7 @@
   fileSystems.'/'.device = "/dev/disk/by-label/slash";
   swapDevices = [ { device = "/dev/disk/by-label/swap"; } ];
 
-  networking.useDHCP = lib.mkDefault true;
+  networking.useDHCP = true;
 
   time.timeZone = "America/New_York";                                                                                                                                  
   i18n.defaultLocale = "en_US.UTF-8";
