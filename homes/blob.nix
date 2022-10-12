@@ -6,17 +6,6 @@
     # Feel free to split up your configuration and import pieces of it here.
   ];
 
-   users.users = {
-    blob = {
-      initialHashedPassword = "correcthorsebatterystaple";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
-      extraGroups = [ "wheel" ];
-    };
-  };
-
   home = {
     username = "blob";
     homeDirectory = "/home/blob";

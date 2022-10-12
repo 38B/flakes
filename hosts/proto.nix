@@ -19,6 +19,17 @@
   time.timeZone = "America/New_York";                                                                                                                                  
   i18n.defaultLocale = "en_US.UTF-8";
 
+  users.users = {
+    blob = {
+      initialHashedPassword = "correcthorsebatterystaple";
+      isNormalUser = true;
+      openssh.authorizedKeys.keys = [
+        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
+      ];
+      extraGroups = [ "wheel" ];
+    };
+  };
+
   system.copySystemConfiguration = true;
   system.stateVersion = "22.05";
 }
