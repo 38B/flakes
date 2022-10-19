@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# TODO: add target argument 
+
 # bool function to test if the user is root or not
 is_user_root () { [ "${EUID:-$(id -u)}" -eq 0 ]; }
 
