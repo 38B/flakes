@@ -17,7 +17,7 @@
   let 
     system = "x86_64-linux";
     inherit nixpkgs lib;
-    specialArgs = { inherit inputs; }
+    specialArgs = { inherit inputs; };
     buildConfig = modules: { inherit modules system specialArgs; };
     buildSystem = modules: lib.nixosSystem (buildConfig modules);
     deployNixos = s: deploy-rs.lib.${s.pkgs.system}.activate.nixos s;
