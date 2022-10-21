@@ -31,6 +31,17 @@
     nixosConfigurations = {
       proto = buildSystem [ ./hosts/proto.nix ];
     };
+
+    deploy = {
+        proto = {
+            hostname = "proto";
+            profiles = {
+                system = {
+                    path = deployNixos self.nixosConfigurations.proto;
+                  };
+              };
+          };
+      };
   };
 
 }
