@@ -29,7 +29,7 @@
     );
 
     nixosConfigurations = {
-      import ./hosts
+      proto = buildSystem [ ./hosts/proto.nix ];
     };
   };
 
