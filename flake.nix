@@ -18,7 +18,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.lib.genAttr system;
     specialArgs = { inherit inputs; };
-    buildConfig = modules: { inherit modules system specialArgs legacyPackages; };
+    buildConfig = modules: { inherit modules system specialArgs; };
     buildSystem = modules: nixpkgs.lib.nixosSystem (buildConfig modules);
     deployNixos = s: deploy-rs.lib.${s.pkgs.system}.activate.nixos s;
     deployHomeManager = sys: s: deploy-rs.lib.${sys}.activate.home-manager s;
