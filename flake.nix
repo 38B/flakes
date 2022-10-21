@@ -16,7 +16,7 @@
   outputs = inputs @ { self, nixpkgs, deploy-rs, home-manager, ... }:
   let 
     system = "x86_64-linux";
-    inherit nixpkgs lib;
+    inherit nixpkgs;
     specialArgs = { inherit inputs; };
     buildConfig = modules: { inherit modules system specialArgs; };
     buildSystem = modules: lib.nixosSystem (buildConfig modules);
