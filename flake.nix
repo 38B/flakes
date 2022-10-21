@@ -16,10 +16,10 @@
   outputs = inputs @ { self, nixpkgs, deploy-rs, home-manager, ... }:
   let 
     system = "x86_64-linux";
-    legacyPackages = nixpkgs.lib.genAttr system;
+    pkgs = nixpkgs.lib.genAttr system;
     specialArgs = { inherit inputs; };
     buildConfig = modules: { inherit modules system specialArgs legacyPackages; };
-    buildSystem = modules: legacyPackages.lib.nixosSystem (buildConfig modules);
+    buildSystem = modules: nixpkgs.lib.nixosSystem (buildConfig modules);
     deployNixos = s: deploy-rs.lib.${s.pkgs.system}.activate.nixos s;
     deployHomeManager = sys: s: deploy-rs.lib.${sys}.activate.home-manager s;
   in
