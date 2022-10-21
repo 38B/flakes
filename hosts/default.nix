@@ -1,11 +1,6 @@
-{ inputs, system, ... }:
-let
-  nixosSystem = inputs.nixpkgs.lib.nixosSystem;
-in
+{config, pkgs, inputs, lib, ... }:
 {
-  proto = nixosSystem {
-    inherit system;
-    specialArgs = { inherit inputs; };
+  proto = buildSystem {
     modules = [
       ./proto.nix 
       ../hw/cloud-vps-intel.nix
