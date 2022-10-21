@@ -28,9 +28,9 @@
       import ./homes 
     );
 
-    nixosConfigurations = (
+    nixosConfigurations = {
       import ./hosts
-    );
+    };
   };
 
 }
