@@ -1,6 +1,10 @@
 { config, pkgs, ... }:                                                                                                                                                   
                                                                                                                                                                          
 {                                                                                                                                                                        
+  imports = [     
+      ../hw/cloud-vps-intel.nix
+  ];
+
   networking.hostName = "proto";
                                                                                                                                                                          
   boot.loader.grub.enable = true;                                                                                                                                        

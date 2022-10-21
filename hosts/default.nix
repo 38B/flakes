@@ -1,8 +1,5 @@
-{config, pkgs, inputs, lib, ... }:
 {
-  proto = buildSystem {
-    modules = [
-      ./proto.nix 
+  proto = buildSystem [ ./proto.nix 
       ../hw/cloud-vps-intel.nix
     ];
   };
