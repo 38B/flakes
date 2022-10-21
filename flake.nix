@@ -25,11 +25,11 @@
   in
   {
     homeConfigurations = (
-      import ./homes; 
+      import ./homes 
     );
 
     nixosConfigurations = (
-      import ./hosts;
+      import ./hosts
     );
   };
 
