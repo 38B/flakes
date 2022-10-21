@@ -1,6 +1,3 @@
 {
-  proto = buildSystem [ ./proto.nix 
-      ../hw/cloud-vps-intel.nix
-    ];
-  };
+  proto = buildSystem [ ./proto.nix ];
 }
