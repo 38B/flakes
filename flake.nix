@@ -18,12 +18,14 @@
   in
   utils.lib.mkFlake {
     inherit self inputs;
+    supportedSystems = [ "x86_64-linux" ];
     channelsConfig.allowUnfree = true;
     hostDefaults.modules = [
         home-manager.nixosModules.home-manager
         ./modules/common.nix
     ];
 
+    hosts."proto".system = "x86_64-linux";
     hosts."proto".modules = [
       ./hosts/proto.nix
     ];
