@@ -15,6 +15,7 @@
   outputs = inputs@{ self, nixpkgs, utils, home-manager, ... }:
   let
     pkgs = self.pkgs.x86_64-linux.nixpkgs;
+    defaultPackage = neoviml
   in
   utils.lib.mkFlake {
     inherit self inputs;
