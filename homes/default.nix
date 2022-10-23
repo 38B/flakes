@@ -1,4 +1,3 @@
-{ inputs, system, ... }:
 {
   "blob@proto" = home-manager.lib.homeManagerConfiguration {
           pkgs = legacyPackages.x86_64-linux;

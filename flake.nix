@@ -18,7 +18,6 @@
         config.allowUnfree = true;
       }
     );
-  };
  
   homeConfigurations = (
       import ./homes 
@@ -27,4 +26,6 @@
   nixosConfigurations = (
       import ./hosts
   );
+  
+  };
 }
