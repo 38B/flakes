@@ -19,13 +19,13 @@
       }
     );
  
-  homeConfigurations = (
+  homeConfigurations = {
       imports = [ ./homes ]; 
-  );
+  };
 
-  nixosConfigurations = (
+  nixosConfigurations = {
       imports = [ ./hosts ];
-  );
+  };
   
   };
 }
