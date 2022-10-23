@@ -4,28 +4,28 @@
   inputs = {
     
     nixpkgs.url = "nixpkgs/release-22.05";
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus"
     
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
  
   };
   
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
-  rec {
-    packages = nixpkgs.lib.genAttrs [ "x86_64-linux" ] (system:
-      import inputs.nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      }
-    );
- 
-  homeConfigurations = {
-      imports = [ ./homes packages]; 
-  };
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
 
-  nixosConfigurations = {
-      imports = [ ./hosts packages];
-  };
-  
+  utils.lib.mkFlake {
+    inherit self inputs;
+    channelsConfig.allowUnfree = true;
+    hostDefaults.modules = [
+        home-manager.nixosModules.home-manager
+        ./modules/common.nix
+    ];
+
+    hosts.proto.modules = [
+      ./hosts/proto.nix
+    ];
+    
+    # overlay = import ./overlays;
+
   };
 }

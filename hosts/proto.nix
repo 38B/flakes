@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:                                                                                                                                                   
+{ ... }:                                                                                                                                                   
                                                                                                                                                                          
 {                                                                                                                                                                        
   imports = [     
@@ -26,15 +26,6 @@
   environment.systemPackages = with pkgs; [
     curl wget htop git
   ];
-
-  nix = {
-    settings = {
-      # Enable flakes and new 'nix' command
-      experimental-features = "nix-command flakes";
-      # Deduplicate and optimize nix store
-      auto-optimise-store = true;
-    };
-  };
 
   users.users = {
     blob = {
