@@ -20,9 +20,9 @@
     );
   };
  
-  homeConfigurations = {
-      import homes 
-  };
+  homeConfigurations = (
+      import ./homes 
+  );
 
   nixosConfigurations = {
       import hosts
