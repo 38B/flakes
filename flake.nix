@@ -7,41 +7,25 @@
     
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    
-    deploy-rs.url = "github:serokell/deploy-rs";
-    deploy-rs.inputs.nixpkgs.follows = "nixpkgs";
-  
+ 
   };
   
-  outputs = inputs @ { self, nixpkgs, deploy-rs, home-manager, ... }:
-  let 
-    system = "x86_64-linux";
-    pkgs = nixpkgs.lib.genAttr system;
-    specialArgs = { inherit inputs; };
-    buildConfig = modules: { inherit modules system specialArgs; };
-    buildSystem = modules: nixpkgs.lib.nixosSystem (buildConfig modules);
-    deployNixos = s: deploy-rs.lib.${s.pkgs.system}.activate.nixos s;
-    deployHomeManager = sys: s: deploy-rs.lib.${sys}.activate.home-manager s;
-  in
-  {
-    homeConfigurations = (
-      import ./homes 
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  rec {
+    packages = nixpkgs.lib.genAttrs [ "x86_64-linux" ] (system:
+      import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      }
+      specialArgs = { inherit inputs; };
     );
-
-    nixosConfigurations = {
-      proto = buildSystem [ ./hosts/proto.nix ];
-    };
-
-    deploy = {
-        proto = {
-            hostname = "proto";
-            profiles = {
-                system = {
-                    path = deployNixos self.nixosConfigurations.proto;
-                  };
-              };
-          };
-      };
+  };
+ 
+  homeConfigurations = {
+      import ./homes 
   };
 
+  nixosConfigurations = {
+      import ./hosts
+  };
 }
