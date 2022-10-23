@@ -25,8 +25,8 @@
         ./modules/common.nix
     ];
 
-    hosts."proto".system = "x86_64-linux";
-    hosts."proto".modules = [
+    self.hosts."proto".system = "x86_64-linux";
+    self.hosts."proto".modules = [
       ./hosts/proto.nix
     ];
     
