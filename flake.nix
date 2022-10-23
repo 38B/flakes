@@ -4,7 +4,8 @@
   inputs = {
     
     nixpkgs.url = "nixpkgs/release-22.05";
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus"
+
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
