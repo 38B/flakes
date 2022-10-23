@@ -22,7 +22,7 @@
         ./modules/common.nix
     ];
 
-    hosts.proto.modules = [
+    hosts."proto".modules = [
       ./hosts/proto.nix
     ];
     
