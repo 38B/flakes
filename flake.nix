@@ -12,7 +12,7 @@
  
   };
   
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, utils, home-manager, ... }:
 
   utils.lib.mkFlake {
     inherit self inputs;
