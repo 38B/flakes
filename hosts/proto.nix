@@ -1,4 +1,4 @@
-{ builtins, lib, config, pkgs, ... }:                                                                                                                                                   
+{ builtins, lib, config, pkgs, modulesPath, ... }:                                                                                                                                                   
                                                                                                                                                                          
 {                                                                                                                                                                        
   imports = [     
