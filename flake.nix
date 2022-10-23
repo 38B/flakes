@@ -20,11 +20,11 @@
     );
  
   homeConfigurations = {
-      imports = [ ./homes ]; 
+      imports = [ ./homes (packages)]; 
   };
 
   nixosConfigurations = {
-      imports = [ ./hosts ];
+      imports = [ ./hosts (packages)];
   };
   
   };
