@@ -17,7 +17,6 @@
         inherit system;
         config.allowUnfree = true;
       }
-      specialArgs = { inherit inputs; };
     );
   };
  
